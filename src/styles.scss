@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.game-area {
+    margin-top: 25px;
+	width: 450px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.my-panel .mat-dialog-container {
+    // background-image: linear-gradient(to right, rgba(61,161,209,0), gba(61,161,209,0));
+    background-image: linear-gradient(#3da1d1, #FFA500	, #3da1d1);
+    color :#fff;
+}

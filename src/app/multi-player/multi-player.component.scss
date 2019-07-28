@@ -1,0 +1,29 @@
+
+.container {
+	padding-top: 7%;
+}
+mat-grid-tile {
+    cursor: pointer;
+    
+	&:nth-child(2), &:nth-child(5), &:nth-child(8) {
+		border-left: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+	}
+
+	&:nth-child(4), &:nth-child(5), &:nth-child(6) {
+		border-top: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+	}
+    
+    i.material-icons.tick {
+        color: green;
+    }
+    
+    i.material-icons.cross {
+        color: red;
+    }
+}
+
+.player-selection {
+	margin-top: 20px;
+}

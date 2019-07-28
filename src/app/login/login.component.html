@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4 reset-pass-container">
+            
+            <form role="form" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit(loginForm.value)">
+                <div class="login-section-header">
+                    <label>Login Here <span>*</span> </label>
+                    <a href="javascript:void(0)" class="pull-right" (click)="doGoogleLogin()">
+                        <img src="./assets/google-login1x.png" alt="google login">
+                    </a>
+                </div>
+                <div class="form-group"> 
+                    <input type="text" 
+                        class="form-control"
+                        formControlName="name"
+                        autocomplete="false"
+                        placeholder="Email"> 
+                    <div class="error" *ngFor="let validation of validation_messages.name">
+                        <span *ngIf="loginForm.get('name').hasError(validation.type) && (loginForm.get('name').dirty || loginForm.get('name').touched)">
+                            {{validation.message}}
+                        </span>
+                    </div>
+                </div> 
+                <div class="form-group"> 
+                    <input type="password" 
+                        class="form-control"
+                        formControlName="password"
+                        autocomplete="false"
+                        placeholder="Password"> 
+                    <div class="error" *ngFor="let validation of validation_messages.password">
+                        <span *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                            {{validation.message}}
+                        </span>
+                    </div>
+                </div> 
+                <a href="Javascript:void(0)" routerLink="/register"><u>Register Here</u></a>
+                <button type="submit" [disabled]="!loginForm.valid" class="btn-upper btn btn-primary checkout-page-button pull-right">{{loginBtnText}}</button>
+            </form>
+        </div>  
+    </div>
+</div>

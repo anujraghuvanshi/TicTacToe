@@ -1,0 +1,73 @@
+    <div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="game-area">
+				<mat-grid-list cols="3" rowHeight="100px">
+				  <mat-grid-tile
+				      *ngFor="let tile of gs.blocks;  let i = index;"
+				      (click)="playerClick(i)"
+				      [rowspan]="1"
+				      [style.background]="'#DDBDF1'">
+				    <i [class]="tile.symbol == 'done' ? 'material-icons tick' : 'material-icons cross'">{{ tile.symbol }}</i>
+				  </mat-grid-tile>
+				</mat-grid-list>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<h2>Score:</h2>
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<td>You:</td>
+						<td>{{ gs.players[0].score }}</td>
+					</tr>
+
+					<tr>
+						<td>Computer:</td>
+						<td>{{ gs.players[1].score }}</td>
+					</tr>
+
+					<tr>
+						<td>Draw:</td>
+						<td>{{ gs.draw }}</td>
+					</tr>
+
+				</tbody>
+			</table>
+			<div>
+				<a href="Javascript:void(0)" class="btn btn-danger" (click)="resetGame($event)">Reset Game</a>
+				<a href="Javascript:void(0)" class="pull-right text-right" class="btn btn-danger pull-right" (click)="newGame()">New Game</a>
+			</div>
+			<div class="player-selection">
+				<a href="/multi-player"><u>Play with your friend</u></a>
+            </div>
+            <div class="gameplay" *ngIf="results && loggedInPlayer && loggedInPlayer != ''">
+                <u class="">Your GamePlay History</u>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of results | async">
+                            <td>{{item.email}}</td>
+                            <td>{{item.status}}</td>
+                            <td>{{item.time}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+		</div>
+
+	</div>
+
+</div>
+
+<li *ngFor="let item of items | async">
+	{{ item.email }}
+</li>
+
